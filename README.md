@@ -10,8 +10,9 @@ mkdir -p ~/minimal-oc && cd ~/minimal-oc
 # Get compose file
 curl -fsSL https://raw.githubusercontent.com/frdrcbrg/minimal-oc/main/compose.yaml -o compose.yaml
 
-# Create data directories
+# Create data directories (UID 1000 = node user inside container)
 mkdir -p data auth-profile-secrets
+chown 1000:1000 data auth-profile-secrets
 
 # Create .env
 cp .env.example .env   # or create manually

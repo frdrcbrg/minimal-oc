@@ -1,7 +1,18 @@
 services:
+  init-permissions:
+    image: busybox
+    command: sh -c "chown -R 1000:1000 /data /config"
+    volumes:
+      - ./data:/data
+      - ./auth-profile-secrets:/config
+    restart: "no"
+
   openclaw:
     image: ghcr.io/frdrcbrg/minimal-oc:latest
     restart: unless-stopped
+    depends_on:
+      init-permissions:
+        condition: service_completed_successfully
     ports:
       - "127.0.0.1:18789:18789"
     volumes:

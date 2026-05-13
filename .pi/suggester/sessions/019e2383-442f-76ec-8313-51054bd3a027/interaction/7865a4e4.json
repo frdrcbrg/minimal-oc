@@ -1,0 +1,22 @@
+{
+  "stateVersion": 9,
+  "pendingNextTurnObservation": {
+    "suggestionTurnId": "7865a4e4",
+    "suggestionShownAt": "2026-05-13T22:45:29.036Z",
+    "userPromptSubmittedAt": "2026-05-13T22:45:39.180Z",
+    "variantName": "default",
+    "strategy": "compact",
+    "requestedStrategy": "compact"
+  },
+  "steeringHistory": [
+    {
+      "turnId": "7865a4e4",
+      "suggestedPrompt": "Push it to GitHub and make the repo public.",
+      "actualUserPrompt": "Push it to GitHub",
+      "classification": "changed_course",
+      "similarity": 0.5055555555555555,
+      "timestamp": "2026-05-13T22:45:39.180Z"
+    }
+  ],
+  "turnsSinceLastStalenessCheck": 1
+}

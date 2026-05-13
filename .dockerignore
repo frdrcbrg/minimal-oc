@@ -1,0 +1,6 @@
+.git
+.github
+.env
+data
+auth-profile-secrets
+.DS_Store

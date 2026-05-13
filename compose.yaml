@@ -1,0 +1,13 @@
+services:
+  openclaw:
+    image: ghcr.io/frdrcbrg/minimal-oc:latest
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:18789:18789"
+    volumes:
+      - ./data:/home/node/.openclaw
+      - ./auth-profile-secrets:/home/node/.config/openclaw
+    environment:
+      - OPENCLAW_DISABLE_BONJOUR=1
+      - OPENCLAW_GATEWAY_TOKEN=${OPENCLAW_GATEWAY_TOKEN}
+      - TZ=${TZ:-Europe/Berlin}

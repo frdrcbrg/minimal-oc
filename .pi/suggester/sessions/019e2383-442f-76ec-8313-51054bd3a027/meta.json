@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "sessionId": "019e2383-442f-76ec-8313-51054bd3a027",
+  "sessionFile": "/Users/D034644/.pi/agent/sessions/--Users-D034644-Code-minimal-oc--/2026-05-13T22-44-25-776Z_019e2383-442f-76ec-8313-51054bd3a027.jsonl",
+  "cwd": "/Users/D034644/Code/minimal-oc",
+  "ignoreLegacyPiSessionEntries": true,
+  "legacyMigration": {
+    "performedAt": "2026-05-13T22:44:32.710Z",
+    "importedLegacyEntries": false,
+    "legacyStateEntryCount": 0,
+    "legacyUsageEntryCount": 0,
+    "note": "Legacy suggester-state/suggester-usage pi session entries were imported once into extension-owned storage and are ignored afterwards."
+  }
+}

@@ -1,8 +1,8 @@
 # minimal-oc
 
-Thin wrapper around the official [OpenClaw](https://github.com/openclaw/openclaw) Docker image. GitHub Actions rebuilds and publishes to GHCR every 6 hours.
+Minimal Docker Compose setup for [OpenClaw](https://github.com/openclaw/openclaw), using the official image directly.
 
-## Deploy on Hostinger VPS
+## Deploy
 
 ```bash
 mkdir -p ~/minimal-oc && cd ~/minimal-oc
@@ -10,21 +10,22 @@ mkdir -p ~/minimal-oc && cd ~/minimal-oc
 # Get compose file
 curl -fsSL https://raw.githubusercontent.com/frdrcbrg/minimal-oc/main/compose.yaml -o compose.yaml
 
-# Create data directories (permissions are fixed automatically on startup)
-mkdir -p data auth-profile-secrets
+# Create data directory (permissions are fixed automatically on startup)
+mkdir -p data
 
 # Create .env
-cp .env.example .env   # or create manually
-# Edit .env and set a strong OPENCLAW_GATEWAY_TOKEN
+cat <<EOF > .env
+OPENCLAW_DISABLE_BONJOUR=1
+OPENCLAW_GATEWAY_TOKEN=your-token-here
+TZ=Europe/Berlin
+EOF
 
 # Pull and start
 docker compose pull
 docker compose up -d
 ```
 
-## Update after rebuild
-
-The VPS must pull the new image after each rebuild:
+## Update
 
 ```bash
 cd ~/minimal-oc
@@ -32,4 +33,9 @@ docker compose pull
 docker compose up -d
 ```
 
-Or set up a cron/webhook to automate this.
+## Volumes
+
+| Volume | Zweck |
+|--------|-------|
+| `./data` | Persistente OpenClaw-Daten |
+| `./data/linuxbrew` | Homebrew-Pakete überleben Neustarts |
